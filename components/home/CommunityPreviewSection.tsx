@@ -35,7 +35,7 @@ export function CommunityPreviewSection() {
             and them grows every month you&apos;re not in here.
           </p>
           <div className="mt-8">
-            <CTAButton href="#" size="lg">
+            <CTAButton href="/community" size="lg">
               Join the ₹10 Crore Circle — Free to Start
             </CTAButton>
           </div>

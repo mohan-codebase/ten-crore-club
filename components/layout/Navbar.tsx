@@ -9,13 +9,14 @@ import { cn } from "@/lib/utils";
 import { ThemeToggle } from "./ThemeToggle";
 
 const links = [
-  { href: "#", label: "About" },
-  { href: "#", label: "Framework" },
-  { href: "#", label: "Services" },
-  { href: "#", label: "Calculators" },
-  { href: "#", label: "Community" },
-  { href: "#", label: "Blog" },
-  { href: "#", label: "Stories" },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/framework", label: "Framework" },
+  { href: "/services", label: "Services" },
+  { href: "/calculators", label: "Calculators" },
+  { href: "/community", label: "Community" },
+  { href: "/blog", label: "Blog" },
+  { href: "/stories", label: "Stories" },
 ];
 
 export function Navbar() {
@@ -39,15 +40,15 @@ export function Navbar() {
   }, [open]);
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 border-b transition-all duration-300",
-        scrolled
-          ? "border-gold/15 bg-ink/85 backdrop-blur-md shadow-[0_8px_30px_-12px_rgba(0,0,0,0.9)]"
-          : "border-transparent bg-ink/40 backdrop-blur-sm",
-      )}
-    >
-      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-5 sm:px-8">
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 sm:pt-5">
+      <nav
+        className={cn(
+          "mx-auto flex h-14 max-w-7xl items-center justify-between gap-4 rounded-2xl border px-5 transition-all duration-500 sm:h-16 sm:px-8",
+          scrolled
+            ? "border-gold/15 bg-ink/80 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.7),0_0_0_1px_rgba(213,160,74,0.08)] backdrop-blur-xl"
+            : "border-gold/10 bg-ink-card/60 backdrop-blur-md",
+        )}
+      >
         <Link href="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
           <Image
             src="/logo/logo-mark.png"
@@ -55,7 +56,7 @@ export function Navbar() {
             width={44}
             height={44}
             priority
-            className="h-10 w-10 object-contain"
+            className="h-9 w-9 object-contain sm:h-10 sm:w-10"
           />
           <span className="font-display text-lg font-semibold leading-none tracking-wide text-cream">
             TEN CRORE <span className="text-gold">CLUB</span>
@@ -71,14 +72,11 @@ export function Navbar() {
                 <Link
                   href={link.href}
                   className={cn(
-                    "relative rounded-md px-3 py-2 text-sm transition-colors",
-                    active ? "text-gold" : "text-gold-light/70 hover:text-gold",
+                    "relative rounded-full px-4 py-2 text-sm transition-colors",
+                    active ? "bg-gold/10 text-gold" : "text-gold-light/70 hover:bg-gold/5 hover:text-gold",
                   )}
                 >
                   {link.label}
-                  {active && (
-                    <span className="absolute inset-x-3 -bottom-px h-0.5 rounded-full bg-gold" />
-                  )}
                 </Link>
               </li>
             );
@@ -88,13 +86,13 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <Link
-            href="#"
-            className="hidden rounded-md border border-red-vivid/60 bg-red-deep px-4 py-2 text-sm font-medium text-on-accent transition-colors hover:bg-red-mid sm:inline-flex"
+            href="/book"
+            className="hidden rounded-lg border border-red-vivid/60 bg-red-deep px-5 py-2 text-sm font-medium text-on-accent transition-all hover:bg-red-mid hover:shadow-[0_0_20px_-4px_rgba(161,6,1,0.5)] sm:inline-flex"
           >
             Book Free Call
           </Link>
           <button
-            className="inline-flex size-10 items-center justify-center rounded-md text-gold lg:hidden"
+            className="inline-flex size-10 items-center justify-center rounded-full text-gold transition-colors hover:bg-gold/10 lg:hidden"
             onClick={() => setOpen((v) => !v)}
             aria-label="Toggle menu"
           >
@@ -106,14 +104,14 @@ export function Navbar() {
       {/* Mobile drawer */}
       <div
         className={cn(
-          "fixed inset-0 top-16 z-40 origin-top bg-ink/98 backdrop-blur-md transition-all duration-300 lg:hidden",
+          "fixed inset-x-4 top-[calc(3.5rem+1.25rem+0.75rem)] z-40 origin-top rounded-2xl border border-gold/15 bg-ink/95 backdrop-blur-xl transition-all duration-300 sm:inset-x-6 lg:hidden",
           open
-            ? "pointer-events-auto opacity-100"
-            : "pointer-events-none -translate-y-2 opacity-0",
+            ? "pointer-events-auto scale-100 opacity-100 shadow-[0_16px_48px_-12px_rgba(0,0,0,0.8)]"
+            : "pointer-events-none scale-95 opacity-0",
         )}
       >
-        <ul className="flex flex-col gap-1 px-5 py-6">
-          {[...links, { href: "#", label: "Contact" }].map((link) => {
+        <ul className="flex flex-col gap-1 p-4">
+          {[...links, { href: "/contact", label: "Contact" }].map((link) => {
             const active = pathname === link.href;
             return (
               <li key={link.label}>
@@ -121,8 +119,8 @@ export function Navbar() {
                   href={link.href}
                   onClick={() => setOpen(false)}
                   className={cn(
-                    "block rounded-md px-4 py-3 text-lg",
-                    active ? "bg-gold/10 text-gold" : "text-gold-light/80",
+                    "block rounded-xl px-4 py-3 text-lg transition-colors",
+                    active ? "bg-gold/10 text-gold" : "text-gold-light/80 hover:bg-gold/5",
                   )}
                 >
                   {link.label}
@@ -130,11 +128,11 @@ export function Navbar() {
               </li>
             );
           })}
-          <li className="mt-3">
+          <li className="mt-2">
             <Link
-              href="#"
+              href="/book"
               onClick={() => setOpen(false)}
-              className="block rounded-md bg-red-deep px-4 py-3 text-center text-lg font-medium text-on-accent"
+              className="block rounded-xl bg-red-deep px-4 py-3 text-center text-lg font-medium text-on-accent transition-colors hover:bg-red-mid"
             >
               Book Free Call
             </Link>

@@ -1,4 +1,5 @@
 import Script from "next/script";
+import { BannerSlider } from "@/components/home/BannerSlider";
 import { HeroSection } from "@/components/home/HeroSection";
 import { RegretSection } from "@/components/home/RegretSection";
 import { DelayCalculatorSection } from "@/components/home/DelayCalculatorSection";
@@ -33,6 +34,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <BannerSlider />
       <HeroSection />
       <RegretSection />
       <DelayCalculatorSection />

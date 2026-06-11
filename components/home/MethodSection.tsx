@@ -61,7 +61,7 @@ export function MethodSection() {
         </Reveal>
 
         <Reveal delay={150} className="mt-10 text-center">
-          <CTAButton href="#" size="lg">
+          <CTAButton href="/framework" size="lg">
             Explore the Full Framework
           </CTAButton>
         </Reveal>

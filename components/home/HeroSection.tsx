@@ -49,10 +49,10 @@ export function HeroSection() {
 
           <AnimateIn delay={360}>
             <div className="mt-9 flex flex-col items-center gap-3 sm:flex-row lg:items-start">
-              <CTAButton href="#" size="lg">
+              <CTAButton href="/calculators" size="lg">
                 Calculate My ₹10 Crore Plan
               </CTAButton>
-              <CTAButton href="#" variant="secondary" size="lg" withArrow={false}>
+              <CTAButton href="/book" variant="secondary" size="lg" withArrow={false}>
                 Book a Free Strategy Call
               </CTAButton>
             </div>

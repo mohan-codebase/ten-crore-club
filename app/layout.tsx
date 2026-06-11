@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ComplianceFooter } from "@/components/layout/ComplianceFooter";
+import { FloatingContactButtons } from "@/components/layout/FloatingContactButtons";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -77,6 +78,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <ComplianceFooter />
         <Footer />
+        <FloatingContactButtons />
       </body>
     </html>
   );

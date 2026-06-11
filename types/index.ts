@@ -50,3 +50,14 @@ export interface Pillar {
   detail: string[];
   insight: string;
 }
+
+export interface BannerSlide {
+  /** Small uppercase eyebrow above the headline. */
+  eyebrow: string;
+  /** Headline — the part in {braces} is rendered with the gold shimmer. */
+  title: string;
+  subtitle: string;
+  icon: LucideIcon;
+  primaryCta: { label: string; href: string };
+  secondaryCta?: { label: string; href: string };
+}

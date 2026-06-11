@@ -125,7 +125,7 @@ export function DelayCalculator({
 
           {showCTA && (
             <div className="mt-5">
-              <CTAButton href="#" pulse>
+              <CTAButton href="/book" pulse>
                 Stop Waiting. Book Your Free Strategy Call
               </CTAButton>
             </div>

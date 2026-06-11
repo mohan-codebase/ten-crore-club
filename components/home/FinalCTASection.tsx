@@ -16,7 +16,7 @@ export function FinalCTASection() {
             It costs everything to ignore it.
           </p>
           <div className="mt-9 flex justify-center">
-            <CTAButton href="#" size="lg" pulse>
+            <CTAButton href="/book" size="lg" pulse>
               Book Your Free 30-Minute Strategy Call
             </CTAButton>
           </div>
