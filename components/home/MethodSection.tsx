@@ -21,17 +21,28 @@ export function MethodSection() {
         </Reveal>
 
         {/* pillars */}
-        <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-5 md:grid-cols-4 lg:grid-cols-6">
           {pillars.map((p, i) => {
             const Icon = p.icon;
             return (
-              <Reveal as="article" key={p.number} delay={i * 100}>
+              <Reveal
+                as="article"
+                key={p.number}
+                delay={i * 100}
+                className={
+                  i === 3
+                    ? "md:col-span-2 lg:col-span-2 lg:col-start-2"
+                    : i === 4
+                    ? "md:col-span-2 md:col-start-2 lg:col-span-2 lg:col-start-auto"
+                    : "md:col-span-2 lg:col-span-2"
+                }
+              >
                 <div className="group flex h-full flex-col overflow-hidden rounded-lg border border-line bg-ink-card transition-colors hover:border-gold/40">
                   {p.image && (
                     <BrandImage
                       src={p.image}
                       alt={p.title}
-                      aspect="16/10"
+                      aspect="1/1"
                       className="border-b border-line"
                       imgClassName="transition-transform duration-500 group-hover:scale-105"
                     />
@@ -46,9 +57,6 @@ export function MethodSection() {
                     <h3 className="mt-4 font-display text-2xl font-semibold text-cream">
                       {p.title}
                     </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-gold-light/70">
-                      {p.short}
-                    </p>
                   </div>
                 </div>
               </Reveal>

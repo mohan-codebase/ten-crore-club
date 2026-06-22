@@ -25,37 +25,41 @@ export function IndiaOpportunitySection() {
         }}
       />
       <div className="relative mx-auto max-w-6xl">
-        <Reveal className="max-w-3xl">
-          <Eyebrow>The Macro Context</Eyebrow>
-          <h2 className="text-display-lg text-balance text-cream">
-            You are living in the greatest wealth-creation window in{" "}
-            <span className="gold-text">Indian history.</span>
-          </h2>
-        </Reveal>
+        {/* Split grid for heading+stats and graphic */}
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
 
-        {/* Split grid for stats and graphic */}
-        <div className="mt-14 grid gap-12 lg:grid-cols-2 lg:items-center">
-          {/* stats grid */}
-          <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:gap-x-10">
+          {/* left: heading + stats */}
+          <div className="flex flex-col gap-10">
             <Reveal>
-              <StatCounter value={80000} suffix="+" label="Sensex in 2024 (from 1,000 in 1990)" />
+              <Eyebrow>The Macro Context</Eyebrow>
+              <h2 className="text-display-lg text-balance text-cream mb-20">
+                You are living in the greatest wealth-creation window in{" "}
+                <span className="gold-text">Indian history.</span>
+              </h2>
             </Reveal>
-            <Reveal delay={100}>
-              <StatCounter value={300000} suffix="+" label="Projected Sensex by 2040" />
-            </Reveal>
-            <Reveal delay={200}>
-              <div className="flex flex-col">
-                <span className="font-mono text-4xl font-semibold tracking-tight text-gold tnum sm:text-5xl">
-                  14–16<span className="ml-0.5 text-2xl text-gold-light sm:text-3xl">%</span>
-                </span>
-                <span className="mt-2 text-sm text-gold-light/70">
-                  Historical 15-year SIP CAGR
-                </span>
-              </div>
-            </Reveal>
-            <Reveal delay={300}>
-              <StatCounter value={2} suffix="x" label="India's middle class by 2035" />
-            </Reveal>
+
+            {/* stats grid */}
+            <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:gap-x-10">
+              <Reveal>
+                <StatCounter value={80000} suffix="+" label="Sensex in 2024 (from 1,000 in 1990)" />
+              </Reveal>
+              <Reveal delay={100}>
+                <StatCounter value={300000} suffix="+" label="Projected Sensex by 2040" />
+              </Reveal>
+              <Reveal delay={200}>
+                <div className="flex flex-col">
+                  <span className="font-mono text-4xl font-semibold tracking-tight text-gold tnum sm:text-5xl">
+                    14–16<span className="ml-0.5 text-2xl text-gold-light sm:text-3xl">%</span>
+                  </span>
+                  <span className="mt-2 text-sm text-gold-light/70">
+                    Historical 15-year SIP CAGR
+                  </span>
+                </div>
+              </Reveal>
+              <Reveal delay={300}>
+                <StatCounter value={2} suffix="x" label="India's middle class by 2035" />
+              </Reveal>
+            </div>
           </div>
 
           {/* graphic */}

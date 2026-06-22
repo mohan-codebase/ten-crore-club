@@ -1,5 +1,6 @@
 import Script from "next/script";
 import { BannerSlider } from "@/components/home/BannerSlider";
+import { LuxuryTicker } from "@/components/home/LuxuryTicker";
 import { HeroSection } from "@/components/home/HeroSection";
 import { RegretSection } from "@/components/home/RegretSection";
 import { DelayCalculatorSection } from "@/components/home/DelayCalculatorSection";
@@ -7,6 +8,7 @@ import { IndiaOpportunitySection } from "@/components/home/IndiaOpportunitySecti
 import { MethodSection } from "@/components/home/MethodSection";
 import { MemberStoriesSection } from "@/components/home/MemberStoriesSection";
 import { CommunityPreviewSection } from "@/components/home/CommunityPreviewSection";
+import { FAQSection } from "@/components/home/FAQSection";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
 
 const jsonLd = {
@@ -35,6 +37,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <BannerSlider />
+      <LuxuryTicker />
       <HeroSection />
       <RegretSection />
       <DelayCalculatorSection />
@@ -42,6 +45,7 @@ export default function Home() {
       <MethodSection />
       <MemberStoriesSection />
       <CommunityPreviewSection />
+      <FAQSection />
       <FinalCTASection />
     </>
   );

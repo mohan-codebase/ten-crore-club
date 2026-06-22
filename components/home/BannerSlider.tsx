@@ -198,6 +198,7 @@ export function BannerSlider() {
       <span className="sr-only" aria-live="polite">
         Slide {active + 1} of {count}
       </span>
+      
     </section>
   );
 }

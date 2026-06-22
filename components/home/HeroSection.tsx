@@ -12,10 +12,7 @@ export function HeroSection() {
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 glow-pulse"
-        style={{
-          background:
-            "radial-gradient(ellipse at center top, rgba(161,6,1,0.16) 0%, transparent 60%)",
-        }}
+        
       />
       {/* noise */}
       <div

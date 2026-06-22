@@ -16,9 +16,9 @@ export function DelayCalculator({
   showChart = true,
   showCTA = true,
 }: DelayCalculatorProps) {
-  const [monthly, setMonthly] = useState(500000);
-  const [years, setYears] = useState(50);
-  const [ret, setRet] = useState(20);
+  const [monthly, setMonthly] = useState(45000);
+  const [years, setYears] = useState(32);
+  const [ret, setRet] = useState(14);
 
   const { valueToday, valueNextYear, delayCost, delayCostLabel } = useMemo(
     () => calcDelayCost(monthly, years, ret),
@@ -47,7 +47,7 @@ export function DelayCalculator({
             value={monthly}
             onChange={setMonthly}
             min={10000}
-            max={1000000}
+            max={500000}
             step={10000}
             display={formatINRFull}
           />
@@ -64,7 +64,7 @@ export function DelayCalculator({
             value={ret}
             onChange={setRet}
             min={10}
-            max={25}
+            max={20}
             step={0.5}
             display={(v) => `${v}%`}
           />
