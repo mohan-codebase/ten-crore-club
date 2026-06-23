@@ -73,13 +73,15 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`light ${cormorant.variable} ${dmSans.variable} ${jetbrains.variable}`}
     >
-      <body className="flex min-h-dvh flex-col bg-ink text-cream antialiased">
-        {/* Apply persisted theme before paint to avoid a flash */}
+      <head>
         <script
+          suppressHydrationWarning
           dangerouslySetInnerHTML={{
             __html: `(function(){try{if(localStorage.getItem('tc-theme')==='dark')document.documentElement.classList.remove('light')}catch(e){}})()`,
           }}
         />
+      </head>
+      <body className="flex min-h-dvh flex-col bg-ink text-cream antialiased">
         <Navbar />
         <main className="flex-1">{children}</main>
         <ComplianceFooter />

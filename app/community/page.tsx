@@ -11,6 +11,7 @@ import { PageHero } from "@/components/shared/PageHero";
 import { SectionWrapper } from "@/components/shared/SectionWrapper";
 import { Reveal } from "@/components/shared/Reveal";
 import { CTAButton } from "@/components/shared/CTAButton";
+import { BrandImage } from "@/components/shared/BrandImage";
 
 export const metadata: Metadata = {
   title: "The ₹10 Crore Circle",
@@ -19,11 +20,11 @@ export const metadata: Metadata = {
 };
 
 const members = [
-  { icon: Stethoscope, label: "Doctors & Healthcare Professionals" },
-  { icon: Laptop, label: "IT Professionals & Software Engineers" },
-  { icon: Briefcase, label: "Business Owners & Entrepreneurs" },
-  { icon: Globe, label: "NRIs Building India-Linked Wealth" },
-  { icon: Building2, label: "Senior Corporate Executives" },
+  { icon: Stethoscope, label: "Doctors & Healthcare Professionals", image: "/images/community/doctor.jpg" },
+  { icon: Laptop, label: "IT Professionals & Software Engineers", image: "/images/community/it.jpg" },
+  { icon: Briefcase, label: "Business Owners & Entrepreneurs", image: "/images/community/entrepreneur.jpg" },
+  { icon: Globe, label: "NRIs Building India-Linked Wealth", image: "/images/community/nri.jpg" },
+  { icon: Building2, label: "Senior Corporate Executives", image: "/images/community/executive.jpg" },
 ];
 
 const free = [
@@ -56,30 +57,57 @@ export default function CommunityPage() {
         }
       />
 
-      <SectionWrapper width="narrow">
-        <Reveal>
-          <div className="gold-glow rounded-xl border border-gold/40 bg-ink-card p-8 text-center">
-            <p className="font-display text-xl italic leading-relaxed text-gold-light/85 sm:text-2xl">
-              Research shows that your financial outcomes are heavily influenced by
-              your peer group. The ₹10 Crore Circle is designed to give you the
-              right one.
-            </p>
-          </div>
-        </Reveal>
+      <SectionWrapper>
+        <div className="grid items-center gap-10 md:grid-cols-[1fr_1fr]">
+          <Reveal>
+            <BrandImage
+              src="/images/community/networking.jpg"
+              alt="Community Networking"
+              aspect="4/3"
+              bordered
+              sizes="(min-width: 768px) 50vw, 100vw"
+            />
+          </Reveal>
+          <Reveal delay={120}>
+            <div className="gold-glow flex h-full flex-col justify-center rounded-xl border border-gold/40 bg-ink-card p-8 text-center">
+              <p className="font-display text-xl italic leading-relaxed text-gold-light/85 sm:text-2xl">
+                Research shows that your financial outcomes are heavily influenced by
+                your peer group. The ₹10 Crore Circle is designed to give you the
+                right one.
+              </p>
+            </div>
+          </Reveal>
+        </div>
       </SectionWrapper>
 
       <SectionWrapper>
         <Reveal className="mb-8 text-center">
           <h2 className="text-display-md text-cream">Who&apos;s inside</h2>
         </Reveal>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
           {members.map((m, i) => {
             const Icon = m.icon;
             return (
               <Reveal key={m.label} delay={i * 80}>
-                <div className="flex h-full flex-col items-center gap-3 rounded-lg border border-line bg-ink-card p-6 text-center">
-                  <Icon className="size-8 text-gold" />
-                  <p className="text-sm text-gold-light/80">{m.label}</p>
+                <div className="group flex h-full flex-col items-center gap-4 rounded-xl border border-line bg-ink-card p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-gold/40 hover:shadow-xl hover:shadow-gold/5">
+                  <div className="relative">
+                    <div className="overflow-hidden rounded-full border border-gold/30 p-1">
+                      <BrandImage
+                        src={m.image}
+                        alt={m.label}
+                        aspect="1/1"
+                        rounded="full"
+                        className="size-24 sm:size-28"
+                        imgClassName="transition-transform duration-700 group-hover:scale-110"
+                      />
+                    </div>
+                    <div className="absolute -bottom-2 -right-2 flex size-9 items-center justify-center rounded-full border border-line bg-ink-card shadow-sm">
+                      <Icon className="size-4.5 text-gold" />
+                    </div>
+                  </div>
+                  <div className="mt-2 flex flex-1 flex-col justify-start">
+                    <p className="font-display text-[15px] leading-snug text-cream">{m.label}</p>
+                  </div>
                 </div>
               </Reveal>
             );

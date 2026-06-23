@@ -6,6 +6,12 @@ import { StatCounter } from "@/components/shared/StatCounter";
 import { TrustStrip } from "@/components/shared/TrustStrip";
 import { Avatar } from "@/components/shared/Avatar";
 import { successStories } from "@/data/success-stories";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
 
 function StoryCard({
   story,
@@ -71,16 +77,32 @@ export function MemberStoriesSection() {
         </Reveal>
 
         <Reveal delay={120} className="mt-12">
-          <div className="grid gap-5 md:grid-cols-3 md:gap-6">
-              {successStories.slice(0, 3).map((story) => (
-                <article key={story.name} className="h-full snap-start">
+          <div className="-mx-5 px-5 sm:-mx-8 sm:px-8 md:mx-0 md:px-0">
+            <Swiper
+              modules={[Pagination, Autoplay]}
+              spaceBetween={24}
+              slidesPerView={1.1}
+              breakpoints={{
+                640: { slidesPerView: 2.1 },
+                1024: { slidesPerView: 3 },
+              }}
+              pagination={{
+                clickable: true,
+                bulletClass: "swiper-pagination-bullet cursor-pointer",
+              }}
+              autoplay={{ delay: 5000, disableOnInteraction: true }}
+              className="member-stories-swiper !pb-16"
+            >
+              {successStories.map((story) => (
+                <SwiperSlide key={story.name} className="h-auto">
                   <StoryCard story={story} />
-                </article>
+                </SwiperSlide>
               ))}
+            </Swiper>
           </div>
         </Reveal>
 
-        <Reveal delay={150} className="mt-12 flex justify-center">
+        <Reveal delay={150} className="mt-4 flex justify-center">
           <TrustStrip />
         </Reveal>
 

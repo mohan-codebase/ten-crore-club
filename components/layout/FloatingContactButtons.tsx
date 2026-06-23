@@ -2,11 +2,12 @@
 
 import { Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
-
+import { ThemeToggle } from "./ThemeToggle";
+ 
 const PHONE = "+919876543210";
 const WHATSAPP_URL = `https://wa.me/919876543210?text=${encodeURIComponent("Hi, I'm interested in learning more about the Ten Crore Club.")}`;
 const CALL_URL = `tel:${PHONE}`;
-
+ 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -19,7 +20,7 @@ function WhatsAppIcon({ className }: { className?: string }) {
     </svg>
   );
 }
-
+ 
 interface FabProps {
   href: string;
   label: string;
@@ -27,7 +28,7 @@ interface FabProps {
   colorClasses: string;
   glowClasses: string;
 }
-
+ 
 function FabButton({ href, label, icon, colorClasses, glowClasses }: FabProps) {
   return (
     <a
@@ -36,7 +37,7 @@ function FabButton({ href, label, icon, colorClasses, glowClasses }: FabProps) {
       rel={href.startsWith("http") ? "noreferrer noopener" : undefined}
       aria-label={label}
       className={cn(
-        "inline-flex h-12 w-12 items-center justify-center rounded-xl border shadow-lg",
+        "inline-flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border shadow-lg",
         "transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0",
         colorClasses,
         glowClasses,
@@ -46,23 +47,24 @@ function FabButton({ href, label, icon, colorClasses, glowClasses }: FabProps) {
     </a>
   );
 }
-
+ 
 export function FloatingContactButtons() {
   return (
     <div className="fixed bottom-6 right-5 z-40 flex flex-col items-end gap-3 sm:bottom-8 sm:right-6">
+      <ThemeToggle className="h-10 w-10 sm:h-12 sm:w-12 rounded-full border border-line bg-ink-card/90 backdrop-blur-md text-gold shadow-lg shadow-black/25 hover:border-gold/50 hover:bg-gold/5 hover:-translate-y-0.5 active:translate-y-0 duration-200 transition-all cursor-pointer" />
       <FabButton
         href={WHATSAPP_URL}
         label="WhatsApp Us"
-        icon={<WhatsAppIcon className="size-6" />}
+        icon={<WhatsAppIcon className="size-5 sm:size-6" />}
         colorClasses="border-[#25D366]/40 bg-[#25D366] text-white hover:bg-[#1EBE57] hover:border-[#1EBE57]/70"
         glowClasses="hover:shadow-[0_8px_30px_-8px_rgba(37,211,102,0.5)]"
       />
       <FabButton
         href={CALL_URL}
         label="Call Us Now"
-        icon={<Phone className="size-5" />}
-        colorClasses="border-red-vivid/50 bg-red-deep text-on-accent hover:bg-red-mid hover:border-red-vivid/80"
-        glowClasses="hover:shadow-[0_8px_30px_-8px_rgba(161,6,1,0.6)]"
+        icon={<Phone className="size-4 sm:size-5" />}
+        colorClasses="border-red-vivid/50 bg-red-mid text-on-accent hover:bg-red-vivid hover:border-red-vivid/80"
+        glowClasses="hover:shadow-[0_8px_30px_-8px_rgba(219, 51, 19,0.6)]"
       />
     </div>
   );

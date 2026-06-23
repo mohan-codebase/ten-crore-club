@@ -14,12 +14,12 @@
   --color-line: #2a2a2a;
 
   /* Brand Reds — shadow → vivid */
-  --color-red-shadow: #8b0000;
-  --color-red-deep: #a10601;
+  --color-red-shadow: #7a1b09;
+  --color-red-deep: #b0270e;
   /* primary red — banners, CTAs */
-  --color-red-mid: #c11409;
+  --color-red-mid: #db3313;
   /* hover state, highlights */
-  --color-red-vivid: #cd140a;
+  --color-red-vivid: #eb401e;
   /* peak red */
 
   /* Brand Golds — shadow → cream */
@@ -42,10 +42,13 @@
   --font-body: var(--font-body), system-ui, sans-serif;
   --font-mono: var(--font-mono), ui-monospace, "SFMono-Regular", monospace;
 
-  /* Radii — luxury, never SaaS. Cap at 12px. */
-  --radius-lg: 12px;
-  --radius-md: 8px;
-  --radius-sm: 4px;
+  /* Radii — luxury, updated for a softer, highly-rounded aesthetic */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 26px;
+  --radius-2xl: 36px;
+  --radius-3xl: 48px;
 }
 
 /* ============================================================
@@ -67,7 +70,7 @@
 :root.light {
   color-scheme: light;
   --brand-bg: #ffffff;
-  --brand-text: #111111;
+  --brand-text: #000000;
 
   /* Surfaces (were blacks) → clean white & grays */
   --color-ink: #ffffff;
@@ -77,8 +80,8 @@
   --color-line: #e9ecef;
 
   /* Text (cream was light-on-dark) → dark charcoal / black */
-  --color-cream: #111111;
-  --color-gold-light: #555555;
+  --color-cream: #000000;
+  --color-gold-light: #000000;
 
   /* Accents need more depth to read on white */
   --color-gold: #9c6b14;
@@ -247,11 +250,11 @@ body {
 
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(161, 6, 1, 0.45);
+    box-shadow: 0 0 0 0 rgba(219, 51, 19, 0.45);
   }
 
   50% {
-    box-shadow: 0 0 0 14px rgba(161, 6, 1, 0);
+    box-shadow: 0 0 0 14px rgba(219, 51, 19, 0);
   }
 }
 
@@ -520,6 +523,88 @@ input[type="range"].tc-range::-moz-range-thumb {
 }
 
 ::selection {
-  background: rgba(161, 6, 1, 0.45);
+  background: rgba(219, 51, 19, 0.45);
   color: #faf0dc;
+}
+
+/* ============================================================
+   Premium Banner Slider Design Styles
+   ============================================================ */
+
+/* Ken Burns slow image zoom */
+@keyframes kenBurnsEffect {
+  0% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1.09);
+  }
+}
+.ken-burns-active {
+  animation: kenBurnsEffect 8000ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Autoplay Timeline Loader */
+@keyframes timelineProgress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+.timeline-progress-active {
+  transform-origin: left;
+  animation: timelineProgress 6500ms linear forwards;
+}
+.timeline-progress-paused {
+  animation-play-state: paused;
+}
+
+/* Luxury glare sweep effect for active showcase card */
+@keyframes glareSweep {
+  0% {
+    transform: translate(-100%, -100%) rotate(35deg);
+  }
+  100% {
+    transform: translate(100%, 100%) rotate(35deg);
+  }
+}
+.glare-sweep::after {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.01) 30%,
+    rgba(255, 255, 255, 0.12) 50%,
+    rgba(255, 255, 255, 0.01) 70%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: translate(-100%, -100%) rotate(35deg);
+  pointer-events: none;
+}
+.group:hover .glare-sweep::after {
+  animation: glareSweep 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Stats item hover elevation */
+.stats-card-transition {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.stats-card-transition:hover {
+  transform: translateY(-3px);
+  border-color: rgba(213, 160, 74, 0.35);
+  box-shadow: 0 10px 20px -10px rgba(213, 160, 74, 0.12);
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }

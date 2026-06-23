@@ -23,7 +23,7 @@ function TickerItems({ hidden = false }: { hidden?: boolean }) {
         >
           <span
             aria-hidden
-            className="size-1 rotate-45 bg-red-deep/70"
+            className="size-1 rotate-45 bg-red-mid/70"
           />
           <span className="luxury-ticker-label whitespace-nowrap font-display text-[11px] font-semibold uppercase tracking-[0.2em] sm:text-xs">
             {highlight}

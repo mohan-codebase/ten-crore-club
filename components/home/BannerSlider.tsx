@@ -52,7 +52,7 @@ export function BannerSlider() {
     <section
       aria-roledescription="carousel"
       aria-label="Featured highlights"
-      className="relative flex min-h-screen flex-col justify-center overflow-hidden px-5 pt-24 pb-12 sm:px-8"
+      className="relative flex min-h-screen flex-col justify-center overflow-hidden px-5 pt-28 pb-16 sm:px-8 bg-ink"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
@@ -62,8 +62,8 @@ export function BannerSlider() {
         if (e.key === "ArrowRight") go(active + 1);
       }}
     >
-      {/* Full-bleed photo per slide — cross-faded with the active index. */}
-      <div aria-hidden className="pointer-events-none absolute inset-0">
+      {/* Full-bleed background photos — cross-faded + Ken Burns zoom when active */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 z-0">
         {bannerSlides.map((slide, i) => (
           <Image
             key={slide.image.src}
@@ -73,37 +73,37 @@ export function BannerSlider() {
             sizes="100vw"
             priority={i === 0}
             className={cn(
-              "object-cover transition-opacity duration-700 ease-out",
-              i === active ? "opacity-100" : "opacity-0",
+              "object-cover transition-opacity duration-1000 ease-out",
+              i === active ? "opacity-90 z-10 ken-burns-active" : "opacity-0 z-0",
             )}
           />
         ))}
       </div>
+
       {/* Dark scrim so cream/gold text stays legible and edges blend to ink. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink/85 via-ink/65 to-ink/95"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink/90 via-ink/75 to-ink/95 z-10"
       />
 
-      {/* red radial glow + noise, matching the hero treatment */}
+      {/* Red radial glow + noise */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 glow-pulse"
+        className="pointer-events-none absolute inset-0 glow-pulse z-10"
         style={{
           background:
-            "radial-gradient(ellipse at center top, rgba(161,6,1,0.16) 0%, transparent 60%)",
+            "radial-gradient(ellipse at center top, rgba(219, 51, 19,0.2) 0%, transparent 70%)",
         }}
       />
       <div
         aria-hidden
-        className="noise-overlay pointer-events-none absolute inset-0 opacity-[0.03] mix-blend-screen"
+        className="noise-overlay pointer-events-none absolute inset-0 opacity-[0.03] mix-blend-screen z-10"
       />
 
-      <div className="relative mx-auto w-full max-w-5xl">
-        {/* Slides — stacked + cross-faded so height is stable. */}
+      <div className="relative mx-auto w-full max-w-5xl z-20">
+        {/* Slides Stack */}
         <div className="grid">
           {bannerSlides.map((slide, i) => {
-            const Icon = slide.icon;
             const isActive = i === active;
             return (
               <div
@@ -114,24 +114,58 @@ export function BannerSlider() {
                 aria-hidden={!isActive}
                 inert={!isActive}
                 className={cn(
-                  "col-start-1 row-start-1 text-center transition-opacity duration-700 ease-out",
-                  isActive ? "opacity-100" : "opacity-0",
+                  "col-start-1 row-start-1 text-center transition-all duration-700 ease-in-out flex flex-col items-center justify-center",
+                  isActive ? "opacity-100 translate-y-0 scale-100 z-10" : "opacity-0 translate-y-4 scale-[0.98] pointer-events-none z-0",
                 )}
               >
-                <span className="mx-auto mb-6 inline-flex size-14 items-center justify-center rounded-full border border-gold/30 bg-gold/8 shadow-[0_18px_70px_-45px_rgba(213,160,74,0.9)]">
-                  <Icon className="size-6 text-gold" aria-hidden />
-                </span>
-                <p className="mb-4 text-xs font-medium uppercase tracking-[0.25em] text-gold/85">
-                  {slide.eyebrow}
-                </p>
-                <h2 className="mx-auto max-w-4xl text-display-xl text-balance text-cream">
+                {/* Eyebrow & Index Label */}
+                <div className="flex items-center justify-center gap-4 mb-6">
+                  <span className="font-mono text-xs font-bold tracking-wider text-gold/85 bg-gold/8 px-2.5 py-1 rounded border border-gold/25">
+                    0{i + 1}
+                  </span>
+                  <div className="inline-flex items-center gap-2 rounded-full border border-gold/20 bg-gold/5 px-3.5 py-1 backdrop-blur-sm">
+                    <span className="relative flex size-2">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-mid opacity-75"></span>
+                      <span className="relative inline-flex rounded-full size-2 bg-red-mid"></span>
+                    </span>
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gold-light/90">
+                      {slide.eyebrow}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Heading */}
+                <h2 className="mx-auto max-w-4xl text-display-xl text-balance text-cream tracking-tight leading-[1.15]">
                   {renderTitle(slide.title)}
                 </h2>
-                <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-gold-light/85">
+
+                {/* Subtitle */}
+                <p className="mx-auto mt-5 max-w-2xl text-base sm:text-lg leading-relaxed text-gold-light/85">
                   {slide.subtitle}
                 </p>
-                <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                  <CTAButton href={slide.primaryCta.href} size="lg">
+
+                {/* Stats Grid */}
+                {slide.stats && (
+                  <div className="mx-auto mt-8 w-full max-w-3xl grid grid-cols-3 gap-4 border-t border-gold/15 pt-8">
+                    {slide.stats.map((stat) => (
+                      <div
+                        key={stat.label}
+                        className="stats-card-transition flex flex-col p-4 sm:p-5 rounded-lg border border-gold/15 bg-ink-card/40 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
+                      >
+                        <span className="font-display text-xl sm:text-3xl font-bold tracking-tight text-cream gold-text">
+                          {stat.value}
+                        </span>
+                        <span className="mt-1.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] text-gold-light/65 leading-none">
+                          {stat.label}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {/* CTAs */}
+                <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto">
+                  <CTAButton href={slide.primaryCta.href} size="lg" className="w-full sm:w-auto">
                     {slide.primaryCta.label}
                   </CTAButton>
                   {slide.secondaryCta && (
@@ -140,6 +174,7 @@ export function BannerSlider() {
                       variant="secondary"
                       size="lg"
                       withArrow={false}
+                      className="w-full sm:w-auto"
                     >
                       {slide.secondaryCta.label}
                     </CTAButton>
@@ -150,55 +185,33 @@ export function BannerSlider() {
           })}
         </div>
 
-        {/* Controls */}
-        <div className="mt-10 flex items-center justify-center gap-5">
+        {/* Custom Premium Controls */}
+        <div className="mt-14 flex items-center justify-center gap-4 border-t border-gold/15 pt-8">
           <button
             type="button"
             onClick={() => go(active - 1)}
             aria-label="Previous slide"
-            className="inline-flex size-10 items-center justify-center rounded-full border border-gold/30 text-gold transition-colors hover:bg-gold/10 hover:border-gold/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+            className="inline-flex size-11 items-center justify-center rounded-full border border-red-mid/30 text-red-mid transition-all hover:bg-red-vivid/10 hover:border-red-mid hover:text-red-vivid focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-mid cursor-pointer"
           >
             <ChevronLeft className="size-5" />
           </button>
-
-          <div className="flex items-center gap-2.5" role="tablist" aria-label="Choose slide">
-            {bannerSlides.map((slide, i) => {
-              const isActive = i === active;
-              return (
-                <button
-                  key={slide.title}
-                  type="button"
-                  role="tab"
-                  aria-selected={isActive}
-                  aria-label={`Go to slide ${i + 1}`}
-                  onClick={() => go(i)}
-                  className={cn(
-                    "h-2 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink",
-                    isActive
-                      ? "w-8 bg-gold"
-                      : "w-2 bg-gold/30 hover:bg-gold/60",
-                  )}
-                />
-              );
-            })}
-          </div>
 
           <button
             type="button"
             onClick={() => go(active + 1)}
             aria-label="Next slide"
-            className="inline-flex size-10 items-center justify-center rounded-full border border-gold/30 text-gold transition-colors hover:bg-gold/10 hover:border-gold/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+            className="inline-flex size-11 items-center justify-center rounded-full border border-red-mid/30 text-red-mid transition-all hover:bg-red-vivid/10 hover:border-red-mid hover:text-red-vivid focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-mid cursor-pointer"
           >
             <ChevronRight className="size-5" />
           </button>
         </div>
+
       </div>
 
-      {/* Polite announcement for screen readers */}
+      {/* Screen Reader Announcements */}
       <span className="sr-only" aria-live="polite">
         Slide {active + 1} of {count}
       </span>
-      
     </section>
   );
 }

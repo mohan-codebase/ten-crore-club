@@ -16,7 +16,7 @@ export function PageHero({ eyebrow, title, subtitle, children }: PageHeroProps) 
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse at center top, rgba(161,6,1,0.12) 0%, transparent 55%)",
+            "radial-gradient(ellipse at center top, rgba(219, 51, 19,0.12) 0%, transparent 55%)",
         }}
       />
       <div className="relative mx-auto max-w-4xl text-center">

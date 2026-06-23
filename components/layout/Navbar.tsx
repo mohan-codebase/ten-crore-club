@@ -6,7 +6,6 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { ThemeToggle } from "./ThemeToggle";
 
 const links = [
   { href: "/", label: "Home" },
@@ -43,25 +42,32 @@ export function Navbar() {
     <header className="fixed inset-x-0 top-0 z-50 px-2 pt-2 sm:px-4 sm:pt-3">
       <nav
         className={cn(
-          "mx-auto flex h-14 max-w-7xl items-center justify-between gap-3 rounded-2xl border px-3 transition-all duration-500 sm:h-16 sm:px-5",
+          "mx-auto flex h-14 max-w-7xl items-center justify-between gap-3 px-3 transition-all duration-500 sm:h-16 sm:px-5 lg:h-auto lg:rounded-none lg:border-none lg:bg-transparent lg:px-0 lg:shadow-none lg:backdrop-blur-none",
           scrolled
-            ? "border-gold/15 bg-ink/80 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.7),0_0_0_1px_rgba(213,160,74,0.08)] backdrop-blur-xl"
-            : "border-gold/10 bg-ink-card/60 backdrop-blur-md",
+            ? "rounded-2xl border border-gold/15 bg-ink/80 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.7),0_0_0_1px_rgba(213,160,74,0.08)] backdrop-blur-xl"
+            : "rounded-2xl border border-gold/10 bg-ink-card/60 backdrop-blur-md",
         )}
       >
-        <Link href="/" className="flex items-center" onClick={() => setOpen(false)}>
+        <Link href="/" className="flex items-center shrink-0" onClick={() => setOpen(false)}>
           <Image
             src="/logo/ten-crore-club-logo-2.png"
             alt="Ten Crore Club Logo"
-            width={104}
-            height={104}
+            width={140}
+            height={140}
             priority
-            className="h-18 w-18 object-contain sm:h-22 sm:w-22"
+            className="h-10 w-auto object-contain sm:h-12 lg:h-24 lg:w-24"
           />
         </Link>
-
-        {/* Desktop links */}
-        <ul className="hidden items-center gap-1 lg:flex">
+ 
+        {/* Desktop links - styled as capsule */}
+        <ul
+          className={cn(
+            "hidden items-center gap-1 lg:flex h-12 rounded-full border px-4 transition-all duration-500",
+            scrolled
+              ? "border-gold/15 bg-ink/80 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.7),0_0_0_1px_rgba(213,160,74,0.08)] backdrop-blur-xl"
+              : "border-gold/10 bg-ink-card/60 backdrop-blur-md",
+          )}
+        >
           {links.map((link) => {
             const active = pathname === link.href;
             return (
@@ -79,12 +85,11 @@ export function Navbar() {
             );
           })}
         </ul>
-
-        <div className="flex items-center gap-2">
-          <ThemeToggle />
+ 
+        <div className="flex items-center gap-2 shrink-0">
           <Link
             href="/book"
-            className="hidden rounded-lg border border-red-vivid/60 bg-red-deep px-5 py-2 text-sm font-medium text-on-accent transition-all hover:bg-red-mid hover:shadow-[0_0_20px_-4px_rgba(161,6,1,0.5)] sm:inline-flex"
+            className="hidden rounded-full border border-red-vivid/60 bg-red-mid px-5 py-2 text-sm font-medium text-on-accent transition-all hover:bg-red-vivid hover:shadow-[0_0_20px_-4px_rgba(219, 51, 19,0.5)] sm:inline-flex"
           >
             Book Free Call
           </Link>
@@ -116,7 +121,7 @@ export function Navbar() {
                   href={link.href}
                   onClick={() => setOpen(false)}
                   className={cn(
-                    "block rounded-xl px-4 py-3 text-lg transition-colors",
+                    "block rounded-full px-4 py-3 text-lg transition-colors",
                     active ? "bg-gold/10 text-gold" : "text-gold-light/80 hover:bg-gold/5",
                   )}
                 >
@@ -129,7 +134,7 @@ export function Navbar() {
             <Link
               href="/book"
               onClick={() => setOpen(false)}
-              className="block rounded-xl bg-red-deep px-4 py-3 text-center text-lg font-medium text-on-accent transition-colors hover:bg-red-mid"
+              className="block rounded-full bg-red-mid px-4 py-3 text-center text-lg font-medium text-on-accent transition-colors hover:bg-red-vivid"
             >
               Book Free Call
             </Link>

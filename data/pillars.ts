@@ -12,8 +12,7 @@ export const pillars: Pillar[] = [
       "Before a single rupee is invested, we audit your income, expenses, and true savings rate.",
       "Most people can invest 30–40% more than they think — once we identify lifestyle leakages, EMI optimization opportunities, and tax-saving routes.",
     ],
-    insight:
-      "Your investable surplus is almost always larger than your bank balance suggests.",
+    insight: "Your investable surplus is almost always larger than your bank balance suggests.",
     image: "/images/sections/pillar-income-expansion.png",
   },
   {

@@ -56,7 +56,7 @@ export default function AboutPage() {
         <div className="grid items-center gap-10 md:grid-cols-[0.8fr_1.2fr]">
           <Reveal>
             <BrandImage
-              src={undefined /* /images/team/advisor.jpg */}
+              src="/images/team/advisor.jpg"
               alt="Founder, Ten Crore Club"
               aspect="3/4"
               bordered

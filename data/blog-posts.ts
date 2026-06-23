@@ -27,6 +27,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Intelligence is no defence against the behavioural traps that quietly destroy portfolios. Here is what actually goes wrong.",
     category: "psychology",
+    coverImage: "https://images.unsplash.com/photo-1643962577481-4ff81600e439?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     readTime: 6,
     publishDate: "2025-11-18",
     author: "Ten Crore Club",
@@ -43,6 +44,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "It isn't fear. It isn't greed. It's the quiet, comfortable feeling that you can always start later.",
     category: "psychology",
+    coverImage: "https://g.foolcdn.com/image/?url=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F643477%2Fstressed-out-businessman.jpg&w=1200&op=resize",
     readTime: 5,
     publishDate: "2025-11-04",
     author: "Ten Crore Club",
@@ -56,6 +58,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Selling during a 30% drawdown feels like protecting your money. The data says it's the most expensive instinct you have.",
     category: "psychology",
+    coverImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4DgFqpnOzWZ6u9tr_E4hr7EAiSx0gqBkRnyz0JYB8rwjBxdd1ffylvPJz",
     readTime: 7,
     publishDate: "2025-10-22",
     author: "Ten Crore Club",
@@ -69,6 +72,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "A plain-English walkthrough of the formula that turns ₹15,000 a month into ₹10 Crore — and why the last decade does most of the work.",
     category: "education",
+    coverImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7b_aJDxj4Fuu4-xWuk6mCSDPSToWkuDjFtlso_ZtY12yu23QISez-_0k",
     readTime: 8,
     publishDate: "2025-11-12",
     author: "Ten Crore Club",
@@ -82,6 +86,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "“I need a lump sum first.” “I'll start when the market dips.” “SIPs are only for small investors.” Let's bury all three.",
     category: "education",
+    coverImage: "https://newapps.anchoredge.in/branding/Content/Blogimage/RealImage/52My-SIP.jpg",
     readTime: 6,
     publishDate: "2025-10-30",
     author: "Ten Crore Club",
@@ -93,6 +98,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "A Systematic Withdrawal Plan can turn a corpus into a monthly paycheck that outlives you. Here's the mechanics.",
     category: "education",
+    coverImage: "https://www.tatacapitalmoneyfy.com/content/dam/tata-capital-moneyfy/swp/choose-swp-img.svg",
     readTime: 6,
     publishDate: "2025-10-15",
     author: "Ten Crore Club",
@@ -107,6 +113,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "₹10 Crore is not reserved for the ultra-rich. With the right horizon and step-ups, it's an arithmetic outcome.",
     category: "education",
+    coverImage: "https://images.yourstory.com/cs/2/e35953e0c10a11eeaef14be6ff40ae87/Imagemkhe-1712172655010.jpg?mode=crop&crop=faces&ar=2%3A1&format=auto&w=1920&q=75",
     readTime: 9,
     publishDate: "2025-09-28",
     author: "Ten Crore Club",
@@ -121,6 +128,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "A real plan, real numbers, and the three decisions that put a Pune engineer on track for a nine-figure corpus.",
     category: "journey",
+    coverImage: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&h=800&fit=crop",
     readTime: 7,
     publishDate: "2025-11-08",
     author: "Ten Crore Club",
@@ -134,6 +142,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "The honest answer, with the actual maths. Spoiler: late is not the same as never.",
     category: "journey",
+    coverImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZI0oeV03I4uOhQxVwg8sZW0DI_66NhKs6XuzWV8zeGGtDpXu_IPi7AMU",
     readTime: 6,
     publishDate: "2025-10-10",
     author: "Ten Crore Club",
@@ -147,6 +156,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "March 2020 felt like the end. For the investors who didn't blink, it became the best buying window of the decade.",
     category: "journey",
+    coverImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8ad9E06pqW-miE00c5UNbKH4AEfVgaQ9MYzTWOigHnv155KOJG61Z-FUZ",
     readTime: 5,
     publishDate: "2025-09-15",
     author: "Ten Crore Club",
@@ -161,6 +171,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Demographics, formalisation, and equity participation are converging into the largest wealth-creation window in Indian history.",
     category: "macro",
+    coverImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGabRk5thObJMXNdBFTgCxKEuUiP-p4hui672i_GoC1k8AnkEXDXBhj_4",
     readTime: 8,
     publishDate: "2025-11-15",
     author: "Ten Crore Club",
@@ -175,6 +186,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "From 1,000 in 1990 to 80,000+ in 2024. We map the runway to the next milestone — and what could derail it.",
     category: "macro",
+    coverImage: "https://akm-img-a-in.tosshub.com/businesstoday/images/story/202307/sensex-1635417756_1-sixteen_nine.jpg?size=948:533",
     readTime: 7,
     publishDate: "2025-10-18",
     author: "Ten Crore Club",
@@ -188,6 +200,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "A weakening rupee, a strengthening economy, and FEMA-compliant routes are pulling NRI capital home.",
     category: "macro",
+    coverImage: "https://cms-assets.apexcommerce.com/6Ewo_tp6pkSDh8w-KUHWt",
     readTime: 6,
     publishDate: "2025-09-20",
     author: "Ten Crore Club",

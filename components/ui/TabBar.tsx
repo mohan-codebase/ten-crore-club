@@ -34,10 +34,10 @@ export function TabBar({ tabs, value, onChange, className, fill }: TabBarProps) 
             aria-selected={active}
             onClick={() => onChange(tab.value)}
             className={cn(
-              "relative rounded-md px-4 py-2 text-sm font-medium transition-colors",
+              "relative rounded-full px-4 py-2 text-sm font-medium transition-colors",
               fill && "flex-1",
               active
-                ? "bg-red-deep/90 text-on-accent"
+                ? "bg-red-mid/90 text-on-accent"
                 : "text-gold-light/70 hover:text-gold hover:bg-gold/5",
             )}
           >

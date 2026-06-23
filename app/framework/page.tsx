@@ -103,7 +103,7 @@ export default function FrameworkPage() {
                 },
                 {
                   label: "Amount Invested",
-                  color: "#a10601",
+                  color: "#b0270e",
                   dashed: true,
                   points: timeline.map((t) => ({ x: t.year, y: t.invested })),
                 },

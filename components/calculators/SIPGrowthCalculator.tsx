@@ -40,7 +40,7 @@ export function SIPGrowthCalculator() {
           value={years}
           onChange={setYears}
           min={1}
-          max={40}
+          max={50}
           display={(v) => `${v} yrs`}
         />
         <Slider
@@ -71,7 +71,7 @@ export function SIPGrowthCalculator() {
             },
             {
               label: "Invested",
-              color: "#a10601",
+              color: "#b0270e",
               dashed: true,
               points: timeline.map((t) => ({ x: t.year, y: t.invested })),
             },

@@ -63,4 +63,6 @@ export interface BannerSlide {
   image: { src: string; alt: string };
   primaryCta: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
+  /** Optional metric stats display for this slide. */
+  stats?: Array<{ label: string; value: string }>;
 }

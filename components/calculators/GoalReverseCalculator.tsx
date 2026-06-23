@@ -32,7 +32,7 @@ export function GoalReverseCalculator() {
           value={target}
           onChange={setTarget}
           min={5000000}
-          max={100000000}
+          max={500000000}
           step={500000}
           display={formatINRFull}
         />
@@ -41,7 +41,7 @@ export function GoalReverseCalculator() {
           value={years}
           onChange={setYears}
           min={5}
-          max={35}
+          max={50}
           display={(v) => `${v} yrs`}
         />
         <Slider

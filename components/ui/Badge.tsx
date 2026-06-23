@@ -4,7 +4,7 @@ type Variant = "gold" | "red" | "outline";
 
 const variants: Record<Variant, string> = {
   gold: "border-gold/40 bg-gold/10 text-gold-light",
-  red: "border-red-vivid/40 bg-red-deep/15 text-cream",
+  red: "border-red-vivid/40 bg-red-mid/15 text-cream",
   outline: "border-line bg-ink-card text-gold-light/80",
 };
 

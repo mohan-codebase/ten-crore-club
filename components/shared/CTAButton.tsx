@@ -29,7 +29,7 @@ type Props = LinkProps | ButtonProps;
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-red-deep text-on-accent border border-red-vivid/70 hover:bg-red-mid shadow-[0_8px_30px_-12px_rgba(205,20,10,0.7)]",
+    "bg-red-mid text-on-accent border border-red-vivid/70 hover:bg-red-vivid shadow-[0_8px_30px_-12px_rgba(219,51,19,0.7)]",
   secondary:
     "bg-transparent border border-gold/70 text-gold hover:bg-gold/10 hover:border-gold",
   ghost:
@@ -53,7 +53,7 @@ export function CTAButton(props: Props) {
   } = props;
 
   const classes = cn(
-    "group inline-flex items-center justify-center gap-2 rounded-md font-medium tracking-wide",
+    "group inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-wide",
     "transition-all duration-200 will-change-transform",
     "hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]",
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink",

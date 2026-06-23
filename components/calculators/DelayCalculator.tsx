@@ -76,7 +76,7 @@ export function DelayCalculator({
               series={[
                 {
                   label: "Start today",
-                  color: "#cd140a",
+                  color: "#eb401e",
                   fill: true,
                   points: timeline.map((t) => ({ x: t.year, y: t.today })),
                 },
@@ -112,7 +112,7 @@ export function DelayCalculator({
             </div>
           </div>
 
-          <div className="mt-4 rounded-lg border-2 border-red-vivid/60 bg-red-deep/10 p-6 text-center cta-pulse">
+          <div className="mt-4 rounded-lg border-2 border-red-vivid/60 bg-red-mid/10 p-6 text-center cta-pulse">
             <p className="text-xs font-medium uppercase tracking-[0.2em] text-red-vivid">
               One Year Costs You
             </p>

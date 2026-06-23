@@ -4,7 +4,7 @@ import { BrandImage } from "@/components/shared/BrandImage";
 
 export function RegretSection() {
   return (
-    <section className="px-5 py-14 sm:px-8 md:py-8">
+    <section className="px-5 py-24 sm:px-8 md:py-28">
       <div className="mx-auto max-w-7xl">
         <Reveal className="mx-auto max-w-3xl text-center">
           <h2 className="text-display-lg text-balance text-cream">
@@ -34,43 +34,19 @@ export function RegretSection() {
             </Reveal>
           </div>
 
-          <Reveal delay={200} className="mt-12">
-            <div className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:gap-10">
-              <figure className="overflow-hidden rounded-xl border border-gold/50 bg-ink-card">
-                <BrandImage
-                  src="/images/sections/regret-vikram.png"
-                  alt="Vikram at 55 — started a ₹20,000 SIP in 2025 and reached ₹10 Crore by 2040"
-                  aspect="4/5"
-                  imgClassName="object-[center_15%]"
-                />
-                <figcaption className="border-t border-gold/30 bg-ink/80 px-4 py-4 text-center">
-                  <p className="font-display text-lg text-gold">Vikram</p>
-                  <p className="mt-1 text-xs uppercase tracking-wider text-gold-light/60">
-                    Started ₹20K SIP · 2025
-                  </p>
-                  <p className="mt-2 font-mono text-sm font-semibold text-cream tnum">
-                    ₹10 Cr by 2040
-                  </p>
-                </figcaption>
-              </figure>
-
-              <figure className="overflow-hidden rounded-xl border border-line bg-ink-card opacity-90">
-                <BrandImage
-                  src="/images/sections/regret-postponed.png"
-                  alt="You at 55 — still waiting to start investing next month"
-                  aspect="4/5"
-                  imgClassName="object-[center_15%] grayscale-[30%]"
-                />
-                <figcaption className="border-t border-line bg-ink/80 px-4 py-4 text-center">
-                  <p className="font-display text-lg text-gold-light/70">You</p>
-                  <p className="mt-1 text-xs uppercase tracking-wider text-gold-light/45">
-                    Same salary · Same city
-                  </p>
-                  <p className="mt-2 font-mono text-sm font-semibold text-gold-light/55 tnum">
-                    “Start next month”
-                  </p>
-                </figcaption>
-              </figure>
+          <Reveal delay={200} className="mx-auto mt-12 max-w-4xl">
+            <div className="group relative overflow-hidden rounded-2xl border border-gold/30 bg-ink-card p-2 transition-all duration-500 hover:border-gold/60 hover:shadow-[0_0_50px_-12px_rgba(212,175,55,0.25)]">
+              {/* Ambient gold glow effect behind the image */}
+              <div className="absolute -inset-px -z-10 rounded-2xl bg-gradient-to-r from-gold/0 via-gold/10 to-gold/0 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              
+              <BrandImage
+                src="/images/home/image-1.jpeg"
+                alt="Vikram vs You: The cost of postponing your SIP decision"
+                aspect="3/2"
+                rounded="lg"
+                imgClassName="object-cover object-center transition-transform duration-700 group-hover:scale-[1.01]"
+                priority
+              />
             </div>
           </Reveal>
 

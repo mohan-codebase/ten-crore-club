@@ -19,8 +19,8 @@ export function SWPCalculator() {
     [withdrawal, ret],
   );
 
-  // sustainability: cap at 30 years for the bar
-  const coveredPct = Math.min((dur.months / (30 * 12)) * 100, 100);
+  // sustainability: cap at 50 years for the bar
+  const coveredPct = Math.min((dur.months / (50 * 12)) * 100, 100);
 
   return (
     <div className="grid gap-8 lg:grid-cols-2">
@@ -30,7 +30,7 @@ export function SWPCalculator() {
           value={corpus}
           onChange={setCorpus}
           min={1000000}
-          max={100000000}
+          max={500000000}
           step={500000}
           display={formatINRFull}
         />
@@ -55,7 +55,7 @@ export function SWPCalculator() {
 
         <div>
           <div className="mb-2 flex items-center justify-between text-xs text-gold-light/60">
-            <span>Sustainability (of a 30-year retirement)</span>
+            <span>Sustainability (of a 50-year retirement)</span>
             <span className="font-mono text-gold">{coveredPct.toFixed(0)}%</span>
           </div>
           <div className="h-2.5 overflow-hidden rounded-full bg-ink-elevated">
@@ -95,7 +95,7 @@ export function SWPCalculator() {
           </div>
         </div>
 
-        <div className="rounded-lg border border-red-vivid/30 bg-red-deep/10 p-5">
+        <div className="rounded-lg border border-red-vivid/30 bg-red-mid/10 p-5">
           <p className="text-sm leading-relaxed text-gold-light/85">
             To sustain{" "}
             <span className="font-mono text-cream">{formatINRFull(withdrawal)}</span>{" "}

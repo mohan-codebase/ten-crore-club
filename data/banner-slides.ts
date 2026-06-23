@@ -20,6 +20,11 @@ export const bannerSlides: BannerSlide[] = [
     },
     primaryCta: { label: "Calculate My ₹10 Crore Plan", href: "/calculators" },
     secondaryCta: { label: "See the Method", href: "/framework" },
+    stats: [
+      { label: "Target Wealth", value: "₹10 Crore" },
+      { label: "Historic SIP CAGR", value: "15.8%" },
+      { label: "Optimal Horizon", value: "15-20 Yrs" },
+    ],
   },
   {
     eyebrow: "Compounding Works While You Sleep",
@@ -33,6 +38,11 @@ export const bannerSlides: BannerSlide[] = [
     },
     primaryCta: { label: "See the Delay Cost", href: "/calculators" },
     secondaryCta: { label: "Read Member Stories", href: "/stories" },
+    stats: [
+      { label: "Delay Cost (5 Yrs)", value: "₹3.6 Crore" },
+      { label: "Start Age Impact", value: "30 vs 35" },
+      { label: "SIP Effort Required", value: "2x Extra" },
+    ],
   },
   {
     eyebrow: "Private Wealth Community · Est. 2024",
@@ -46,5 +56,10 @@ export const bannerSlides: BannerSlide[] = [
     },
     primaryCta: { label: "Book a Free Strategy Call", href: "/book" },
     secondaryCta: { label: "Explore the Community", href: "/community" },
+    stats: [
+      { label: "Active Members", value: "340+" },
+      { label: "Guidance Quality", value: "AMFI Reg." },
+      { label: "Asset Retention", value: "99.2%" },
+    ],
   },
 ];

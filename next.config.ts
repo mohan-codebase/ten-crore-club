@@ -7,11 +7,8 @@ const nextConfig: NextConfig = {
     // must be allow-listed here (next/image will refuse unknown hosts).
     // Add your CMS/CDN host below as you wire real images in.
     remotePatterns: [
-      { protocol: "https", hostname: "images.unsplash.com" },
-      { protocol: "https", hostname: "res.cloudinary.com" },
-      { protocol: "https", hostname: "images.pexels.com" },
-      // e.g. { protocol: "https", hostname: "cdn.sanity.io" },
-      // e.g. { protocol: "https", hostname: "your-bucket.s3.amazonaws.com" },
+      { protocol: "https", hostname: "**" },
+      { protocol: "http", hostname: "**" },
     ],
   },
   async headers() {

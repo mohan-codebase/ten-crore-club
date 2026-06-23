@@ -15,7 +15,7 @@ const timeline = [
 
 export function IndiaOpportunitySection() {
   return (
-    <section className="relative overflow-hidden px-5 py-24 sm:px-8 md:py-18">
+    <section className="relative overflow-hidden px-5 py-24 sm:px-8 md:py-28">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 opacity-[0.06]"
@@ -32,7 +32,7 @@ export function IndiaOpportunitySection() {
           <div className="flex flex-col gap-10">
             <Reveal>
               <Eyebrow>The Macro Context</Eyebrow>
-              <h2 className="text-display-lg text-balance text-cream mb-20">
+              <h2 className="text-display-lg text-balance text-cream">
                 You are living in the greatest wealth-creation window in{" "}
                 <span className="gold-text">Indian history.</span>
               </h2>
@@ -65,7 +65,7 @@ export function IndiaOpportunitySection() {
           {/* graphic */}
           <Reveal delay={200}>
             <BrandImage
-              src="/images/sections/india-growth.png"
+              src="/images/sections/india-growth-dashboard.png"
               alt="India compounding growth and Sensex timeline graphic"
               aspect="1/1"
               bordered

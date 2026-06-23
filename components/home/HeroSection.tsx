@@ -63,7 +63,7 @@ export function HeroSection() {
         {/* Right — brand visual only */}
         <AnimateIn delay={300}>
           <BrandImage
-            src="/images/sections/hero-membership.png"
+            src="/images/sections/hero-membership-clean.png"
             alt="Ten Crore Club Premium Membership Card"
             aspect="1/1"
             bordered

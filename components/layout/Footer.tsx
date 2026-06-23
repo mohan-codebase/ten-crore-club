@@ -4,13 +4,17 @@ import {
   Mail,
   MapPin,
   Phone,
-  Globe,
-  AtSign,
-  MessageCircle,
-  Rss,
   ArrowUpRight,
   ChevronUp,
 } from "lucide-react";
+import { 
+  FaInstagram, 
+  FaXTwitter, 
+  FaFacebookF, 
+  FaLinkedinIn, 
+  FaYoutube, 
+  FaWhatsapp 
+} from "react-icons/fa6";
 
 const quickLinks = [
   { href: "/about", label: "About" },
@@ -24,10 +28,12 @@ const quickLinks = [
 ];
 
 const socials = [
-  { icon: Globe, label: "Website", href: "/" },
-  { icon: AtSign, label: "Email", href: "mailto:contact@tencroreclub.in" },
-  { icon: MessageCircle, label: "WhatsApp", href: "https://wa.me/919876543210" },
-  { icon: Rss, label: "RSS", href: "/blog" },
+  { icon: FaInstagram, label: "Instagram", href: "https://instagram.com/tencroreclub" },
+  { icon: FaXTwitter, label: "X (Twitter)", href: "https://twitter.com/tencroreclub" },
+  { icon: FaFacebookF, label: "Facebook", href: "https://facebook.com/tencroreclub" },
+  { icon: FaLinkedinIn, label: "LinkedIn", href: "https://linkedin.com/company/tencroreclub" },
+  { icon: FaYoutube, label: "YouTube", href: "https://youtube.com/@tencroreclub" },
+  { icon: FaWhatsapp, label: "WhatsApp", href: "https://wa.me/919876543210" },
 ];
 
 export function Footer() {
@@ -40,7 +46,7 @@ export function Footer() {
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse at 20% 0%, rgba(213,160,74,0.06) 0%, transparent 50%), radial-gradient(ellipse at 80% 100%, rgba(161,6,1,0.05) 0%, transparent 50%)",
+              "radial-gradient(ellipse at 20% 0%, rgba(213,160,74,0.06) 0%, transparent 50%), radial-gradient(ellipse at 80% 100%, rgba(219, 51, 19,0.05) 0%, transparent 50%)",
           }}
         />
         <div
@@ -62,7 +68,7 @@ export function Footer() {
             </div>
             <Link
               href="/book"
-              className="group flex items-center gap-2 rounded-lg border border-red-vivid/60 bg-red-deep px-6 py-3 text-sm font-semibold text-on-accent transition-all hover:bg-red-mid hover:shadow-[0_0_30px_-8px_rgba(161,6,1,0.6)]"
+              className="group flex items-center gap-2 rounded-full border border-red-vivid/60 bg-red-mid px-6 py-3 text-sm font-semibold text-on-accent transition-all hover:bg-red-vivid hover:shadow-[0_0_30px_-8px_rgba(219, 51, 19,0.6)]"
             >
               Book Free Strategy Call
               <ArrowUpRight className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -99,7 +105,7 @@ export function Footer() {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="inline-flex size-10 items-center justify-center rounded-xl border border-line/60 bg-ink/40 text-gold-light/50 transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/40 hover:bg-gold/10 hover:text-gold hover:shadow-[0_4px_16px_-4px_rgba(213,160,74,0.3)]"
+                  className="inline-flex size-10 items-center justify-center rounded-full border border-line/60 bg-ink/40 text-gold-light/50 transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/40 hover:bg-gold/10 hover:text-gold hover:shadow-[0_4px_16px_-4px_rgba(213,160,74,0.3)]"
                 >
                   <Icon className="size-[18px]" />
                 </a>
@@ -118,7 +124,7 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="group flex items-center gap-1 rounded-lg px-2 py-1.5 text-sm text-gold-light/65 transition-all hover:bg-gold/5 hover:text-gold"
+                    className="group flex items-center gap-1 rounded-full px-3 py-1.5 text-sm text-gold-light/65 transition-all hover:bg-gold/5 hover:text-gold"
                   >
                     {link.label}
                     <ArrowUpRight className="size-3 opacity-0 transition-all group-hover:opacity-100" />
@@ -138,9 +144,9 @@ export function Footer() {
               <li>
                 <a
                   href="mailto:contact@tencroreclub.in"
-                  className="group flex items-start gap-3 rounded-lg px-2 py-2 transition-all hover:bg-gold/5"
+                  className="group flex items-start gap-3 rounded-full px-3 py-2 transition-all hover:bg-gold/5"
                 >
-                  <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-lg bg-gold/8 text-gold transition-colors group-hover:bg-gold/15">
+                  <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full bg-gold/8 text-gold transition-colors group-hover:bg-gold/15">
                     <Mail className="size-4" />
                   </span>
                   <div>
@@ -154,9 +160,9 @@ export function Footer() {
               <li>
                 <a
                   href="tel:+919876543210"
-                  className="group flex items-start gap-3 rounded-lg px-2 py-2 transition-all hover:bg-gold/5"
+                  className="group flex items-start gap-3 rounded-full px-3 py-2 transition-all hover:bg-gold/5"
                 >
-                  <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-lg bg-gold/8 text-gold transition-colors group-hover:bg-gold/15">
+                  <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full bg-gold/8 text-gold transition-colors group-hover:bg-gold/15">
                     <Phone className="size-4" />
                   </span>
                   <div>
@@ -168,7 +174,7 @@ export function Footer() {
                 </a>
               </li>
               <li className="flex items-start gap-3 px-2 py-2">
-                <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-lg bg-gold/8 text-gold">
+                <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full bg-gold/8 text-gold">
                   <MapPin className="size-4" />
                 </span>
                 <div>
@@ -196,7 +202,7 @@ export function Footer() {
             <a
               href="#"
               aria-label="Back to top"
-              className="hidden size-9 items-center justify-center rounded-xl border border-gold/20 bg-ink/60 text-gold-light/50 transition-all hover:-translate-y-0.5 hover:border-gold/40 hover:text-gold sm:inline-flex"
+              className="hidden size-9 items-center justify-center rounded-full border border-gold/20 bg-ink/60 text-gold-light/50 transition-all hover:-translate-y-0.5 hover:border-gold/40 hover:text-gold sm:inline-flex"
             >
               <ChevronUp className="size-4" />
             </a>
